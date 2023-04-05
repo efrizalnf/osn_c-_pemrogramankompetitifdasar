@@ -2,13 +2,98 @@
 
 using namespace std;
 
+/*
 int tambah(int a, int b) {
     int hasil = a + b;
     return hasil;
 }
+**/
+
+int jalanjalan(int kiri, int kanan){
+     int energi=0;
+     while (kiri<kanan){
+         if (kiri % 7 == 0){
+             kiri++;
+             energi++;
+         }else if (kiri % 3 ==0){
+             kiri+=2;
+             energi+=2;
+         }else{
+             kiri+=3;
+             energi+=3;
+        }
+    }
+     return energi;
+}
+
+
+int kwik(int mangga){
+ int hasil=0;
+ for (int i=0; i<mangga; i+=4){ //4, 8, 12, 16
+    hasil+=i; //4,8,12,24
+    // hasil = 24 + 16
+ }
+ return hasil;
+}
+
+int kwek(int apel){
+int hasil=0;
+ for (int i=0; i<apel; i+=3){
+    hasil+=kwik(i*3)*i;
+    // hasil = hasil + kwik(0*3) * 0;
+ }
+ return hasil;
+}
+
+int kwak(int jeruk){
+ int hasil=0;
+ for (int i=0; i<jeruk; i+=2){
+    hasil+=kwek(i)+kwik(i*2);
+ }
+ return hasil;
+}
+
+int bahagia(int A){
+     if (A>0){
+         int B=A/2; // 5
+         int C=A-(B*2);
+         cout << C; // 0
+         bahagia(B);
+     }
+}
+
+int putih(int x){
+    if(x>0)
+    return 1 + putih(x/2);
+    return 0;
+}
+
+int merah(int x, int y){ //98 , 50
+    if(x == y)
+    return putih(x);
+
+    if (x > y)
+    return 1 + merah(x-1, y);
+    return 0;
+}
+
+int hitung(int x, int y){ //x=9 , y=10
+ if (x+y == 0) return y;
+
+ if (x >= 0)
+ return hitung(x - 1, 2*y); // 8 , 20
+
+ return (x - 1, y - 1) + 1;
+}
+
 
 int main()
 {
+    //int hasil = jalanjalan(10, 1000);
+    //cout<< hasil;
+    cout << hitung(10, 5);
+    // cout << (28 % 7);
+    // cout << kwak(10);
   //Fungsi
   //cout << tambah(2,3);
   //panggil function
@@ -332,12 +417,13 @@ return 0;
  }
 
  for (int i=0; i<10; i++) {
-     cout<<C[i]<<” “; //error disini
+     cout<<C[i]<<" "; //error disini
  }
 
  return 0;
 **/
 
+/*
  int A,B,C,D;
  cin >> A >> B;
  C=A;
@@ -352,5 +438,20 @@ return 0;
  }
  cout<<(C+D)/(A+B);
 
+**/
+/*
+ char x[11]={'I','N','F','O','R','M','A','T','I','K','A'};
+ for (int i=0; i<11; i++)
+    {
+        x[i] = x[13-(i+3)];
+        x[13-(i+3)] = x[10-i];
+        x[10-i] = x[i];
+    }
+ cout <<x<<endl;
+**/
+
+
 
 }
+
+
